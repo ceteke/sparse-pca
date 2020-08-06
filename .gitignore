@@ -1,2 +1,3 @@
 *.DS_STORE
 nbs/.ipynb_checkpoints
+data
