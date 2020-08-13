@@ -23,7 +23,7 @@ end
 
 function randomxi(ρ::Float64, p::Int64)
     #=
-    First input is ρ(rho), denotes pr. of being non-zero (√p).
+    First input is ρ(rho), denotes pr. of being non-zero (1/√p).
     Second inpit is p denotes dimensionality.
     Generates random ξ vector of shape `(1, p)`.
     =#
