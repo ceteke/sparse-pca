@@ -6,10 +6,13 @@ def spiked_model(omega, sigma=1, xi=None, rho=None, p=None):
     Returns spiked model, if xi is not given randomly samples a xi.
     '''
 
-    if not xi:
+    if xi is None:
         assert rho is not None, "If xi is not given provide rho"
         assert p is not None, "If xi is not given provide p"
         xi = random_xi(rho, p)
+
+    else:
+        p = len(xi)
 
     xi = xi.reshape(1, -1)
 
