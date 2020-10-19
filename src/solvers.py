@@ -1,13 +1,16 @@
 import numpy as np
 from metrics import cossim
-from numba import jit
 
 
-def online(model, phi, tau, T, return_X=False, progress=None):
+def online(model, phi, tau, T, x0=None, return_X=False, progress=None):
     xi, _ = model(1)
     p = xi.shape[-1]
 
-    x = np.random.randn(1, p)*0.5 + 1/np.sqrt(2)
+    if x0 is None:
+        x = np.random.randn(1, p)*0.5 + 1/np.sqrt(2)
+    else:
+        x = np.copy(x0)
+
     Q = np.zeros((p*T+1))
     Q[0] = cossim(x, xi)
 
